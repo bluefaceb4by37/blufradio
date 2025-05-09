@@ -1,100 +1,70 @@
-/* Podstawowy styl */
+/* Ogólne style */
 body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
 }
 
 header {
-    margin-top: 50px;
-    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    color: #00ff99;
 }
 
 h1 {
-    font-size: 4em;
-    font-weight: bold;
-    color: #0f8eff;
-    text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99;
-    animation: neon 1.5s infinite alternate;
-}
-
-@keyframes neon {
-    0% {
-        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
-    }
-    50% {
-        text-shadow: 0 0 20px #ff4081, 0 0 30px #ff4081;
-    }
-    100% {
-        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
-    }
+    font-size: 2.5em;
+    margin: 0;
 }
 
 .on-air {
-    display: inline-block;
-    margin-top: 10px;
     font-size: 1.5em;
-    font-weight: bold;
-    color: red;
-    animation: blink 1s step-start 0s infinite;
+    color: #ff3333;
+    margin-top: 10px;
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
+footer {
+    background-color: #222;
+    padding: 10px;
+    color: #777;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
+/* Player */
 .player-container {
-    margin-top: 30px;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    animation: waveEffect 3s ease-in-out infinite;
-}
-
-@keyframes waveEffect {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #now-playing {
-    font-size: 1.2em;
     margin-bottom: 20px;
 }
 
 #song-title {
-    color: #ff4081;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
-footer {
-    margin-top: 50px;
-    color: gray;
-    font-size: 0.8em;
+#song-name {
+    color: #00ff99;
+    font-weight: bold;
 }
 
+/* Styl iframe (player SoundCloud) */
 iframe {
+    border-radius: 10px;
     border: none;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.5em;
-    }
-
-    .player-container {
-        width: 90%;
-    }
+/* Efekt na hover dla przycisków lub elementów */
+button:hover, .player-container:hover {
+    background-color: #444;
+    cursor: pointer;
 }
