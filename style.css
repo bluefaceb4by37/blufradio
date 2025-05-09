@@ -1,70 +1,27 @@
-/* Ogólne style */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    color: #fff;
-    text-align: center;
+// Zmienna do przechowywania utworu
+const songNameElement = document.getElementById('song-name');
+
+// Funkcja, która ładuje piosenkę
+function loadSong() {
+    // Tytuł aktualnego utworu
+    const songTitle = "Manieczki - Que Sera";
+
+    // Wyświetlanie tytułu w elemencie #song-name
+    songNameElement.innerText = songTitle;
+
+    // API SoundCloud: Ładowanie utworu
+    SC.initialize({
+        client_id: 'TklGavPf8jbSFulG8l0dGGpRsDs1c5gN'
+    });
+
+    SC.stream('/tracks/719024791').then(function(player) {
+        player.play();
+    }).catch(function(error) {
+        console.log('Błąd podczas ładowania utworu:', error);
+    });
 }
 
-header {
-    background-color: #222;
-    padding: 20px;
-    color: #00ff99;
-}
-
-h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-.on-air {
-    font-size: 1.5em;
-    color: #ff3333;
-    margin-top: 10px;
-}
-
-footer {
-    background-color: #222;
-    padding: 10px;
-    color: #777;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-/* Player */
-.player-container {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#now-playing {
-    margin-bottom: 20px;
-}
-
-#song-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-#song-name {
-    color: #00ff99;
-    font-weight: bold;
-}
-
-/* Styl iframe (player SoundCloud) */
-iframe {
-    border-radius: 10px;
-    border: none;
-}
-
-/* Efekt na hover dla przycisków lub elementów */
-button:hover, .player-container:hover {
-    background-color: #444;
-    cursor: pointer;
-}
+// Ładowanie utworu przy załadowaniu strony
+window.onload = function() {
+    loadSong();
+};
