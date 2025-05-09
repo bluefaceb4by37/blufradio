@@ -1,27 +1,82 @@
-// Zmienna do przechowywania utworu
-const songNameElement = document.getElementById('song-name');
-
-// Funkcja, która ładuje piosenkę
-function loadSong() {
-    // Tytuł aktualnego utworu
-    const songTitle = "Manieczki - Que Sera";
-
-    // Wyświetlanie tytułu w elemencie #song-name
-    songNameElement.innerText = songTitle;
-
-    // API SoundCloud: Ładowanie utworu
-    SC.initialize({
-        client_id: 'TklGavPf8jbSFulG8l0dGGpRsDs1c5gN'
-    });
-
-    SC.stream('/tracks/719024791').then(function(player) {
-        player.play();
-    }).catch(function(error) {
-        console.log('Błąd podczas ładowania utworu:', error);
-    });
+/* Ogólne style */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* Czarne tło */
+    color: #fff; /* Biały tekst */
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie zawartości */
+    align-items: center; /* Wyśrodkowanie zawartości */
+    height: 100vh; /* Wysokość strony, żeby zawartość była na środku */
+    flex-direction: column;
 }
 
-// Ładowanie utworu przy załadowaniu strony
-window.onload = function() {
-    loadSong();
-};
+header {
+    background-color: #222; /* Ciemne tło nagłówka */
+    padding: 20px;
+    color: #00ff99; /* Zielony tekst */
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.on-air {
+    font-size: 1.5em;
+    color: #ff3333; /* Czerwony kolor napisu ON AIR */
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #222; /* Ciemne tło stopki */
+    padding: 10px;
+    color: #777; /* Jasny tekst stopki */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+/* Player */
+.player-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #333; /* Ciemne tło kontenera z odtwarzaczem */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Szerokość playera */
+    max-width: 800px; /* Maksymalna szerokość dla dużych ekranów */
+}
+
+#now-playing {
+    margin-bottom: 20px;
+}
+
+#song-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#song-name {
+    color: #00ff99; /* Zielony kolor tytułu utworu */
+    font-weight: bold;
+}
+
+/* Styl iframe (player SoundCloud) */
+iframe {
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    height: 166px; /* Standardowa wysokość playera SoundCloud */
+}
+
+/* Efekt na hover dla przycisków lub elementów */
+button:hover, .player-container:hover {
+    background-color: #444;
+    cursor: pointer;
+}
