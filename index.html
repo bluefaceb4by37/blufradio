@@ -14,12 +14,19 @@
 
     <div class="player-container">
         <div id="now-playing">
-            <div id="song-title">Aktualny utwór: <span id="song-name">Brak utworu</span></div>
+            <div id="song-title">Aktualny utwór: <span id="song-name">Manieczki - Que Sera</span></div>
         </div>
-        <!-- Odtwarzacz SoundCloud z jednym utworem -->
-        <iframe id="soundcloud-player" width="100%" height="166" scrolling="no" frameborder="no" 
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-794933116/manieczki-que-sera&color=%2300ff99&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=true">
-        </iframe>
+
+        <!-- Stały odtwarzacz audio z piosenką -->
+        <audio id="audio-player" autoplay loop>
+            <source src="https://raw.githubusercontent.com/bluefaceb4by37/blufradio/main/music/youtube_WcfV9xZDR8Y_audio.mp3" type="audio/mp3">
+            Twoja przeglądarka nie wspiera tagu audio.
+        </audio>
+
+        <div class="controls">
+            <button id="stop-button">Stop</button>
+            <button id="play-button">Play</button>
+        </div>
     </div>
 
     <footer>
